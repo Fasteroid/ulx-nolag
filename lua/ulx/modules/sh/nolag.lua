@@ -1,6 +1,7 @@
 local CATEGORY_NAME = "NoLag Utilities"
 
 
+------------------------------ Nolag ------------------------------
 function ulx.nolag(calling_ply)
 	local amt = 0
 	for k,v in pairs(ents.GetAll()) do
@@ -16,13 +17,31 @@ function ulx.nolag(calling_ply)
 			end
 		end
 	end
-	ulx.fancyLogAdmin( calling_ply, "#A froze #i entities.", amt )
+	ulx.fancyLogAdmin( calling_ply, "#A froze #i physics entities", amt )
 	return amt
 end
 
 local nolag = ulx.command( CATEGORY_NAME, "ulx nolag", ulx.nolag, "!nolag" )
 nolag:defaultAccess( ULib.ACCESS_ADMIN )
 nolag:help( "Freeze all freezable entities on the server." )
+
+
+------------------------------ Gibs Cleanup ------------------------------
+local GIB_TYPES = {"gib","item_*","debris","helicopter_chunk"}
+function ulx.nogibs( calling_ply )
+	local count = 0
+	for _, class in ipairs(GIB_TYPES) do
+		for k, v in ipairs( ents.FindByClass(class) ) do 
+			v:Remove() 
+			count = count + 1
+		end
+	end
+	ulx.fancyLogAdmin( calling_ply, "#A cleaned up #i gib entities", count )
+	return count
+end
+local nogibs = ulx.command( CATEGORY_NAME, "ulx nogibs", ulx.nogibs, "!nogibs" )
+nogibs:defaultAccess( ULib.ACCESS_ALL )
+nogibs:help( "Removes gibs that might be cluttering the map." )
 
 
 ------------------------------ Average entity position ------------------------------
@@ -47,6 +66,7 @@ end
 local entcenter = ulx.command( CATEGORY_NAME, "ulx entcenter", ulx.entcenter, "!entcenter" )
 entcenter:defaultAccess( ULib.ACCESS_ADMIN )
 entcenter:help( "Teleport to the average position of all physics entities on the server.  May reveal where spammed entities are." )
+
 
 ------------------------------ Find entity clusters ------------------------------
 function ulx.entcluster(calling_ply,clumpcount,clumprad)
@@ -115,8 +135,7 @@ end
 local clean = ulx.command( CATEGORY_NAME, "ulx cleanup", ulx.cleanup, "!cleanup" )
 clean:addParam{ type=ULib.cmds.PlayerArg }
 clean:defaultAccess( ULib.ACCESS_ADMIN )
-clean:help( "Cleans up a player's entities.  Ideal for panicked spam removal." )
-
+clean:help( "(NADMOD PP) Cleans up a player's entities.  Ideal for panicked spam removal." )
 
 
 ------------------------------ Cleanup Disconnected ------------------------------
@@ -128,24 +147,6 @@ local nadclean = ulx.command( CATEGORY_NAME, "ulx cleanupdiscon", ulx.nadclean, 
 nadclean:defaultAccess( ULib.ACCESS_ADMIN )
 nadclean:help( "(NADMOD PP) Clears props of disconnected players." )
 
-
-
------------------------------- Gibs Cleanup ------------------------------
-local GIB_TYPES = {"gib","item_*","debris","helicopter_chunk"}
-function ulx.gibclean( calling_ply )
-	local count = 0
-	for _, class in ipairs(GIB_TYPES) do
-		for k, v in ipairs( ents.FindByClass(class) ) do 
-			v:Remove() 
-			count = count + 1
-		end
-	end
-	ulx.fancyLogAdmin( calling_ply, "#A cleaned up #i world entities", count )
-	return count
-end
-local gibclean = ulx.command( CATEGORY_NAME, "ulx cleargibs", ulx.gibclean, "!cleargibs" )
-gibclean:defaultAccess( ULib.ACCESS_ALL )
-gibclean:help( "Removes gibs that might be cluttering the map." )
 
 ------------------------------ Class Cleanup ------------------------------
 function ulx.classclean( calling_ply, target_class )
