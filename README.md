@@ -20,6 +20,12 @@ Also, several commands require [Nadmod Prop Protection](https://github.com/Nebua
 - <b>ulx noclass</b> ("!noclass") `<class>`<br>
 &ensp;Cleans up all instances of a specific entity class. &nbsp;Supports use of * as a wildcard.<br>
 
+- <b>ulx cleanup</b> ("!cleanup") `<player>`<br>
+&ensp;(NADMOD PP) Cleans up a player's entities. &nbsp;Ideal for panicked spam removal.<br>
+
+- <b>ulx cleanupdiscon</b> ("!cleanupdiscon")<br>
+&ensp;(NADMOD PP) Clears props of disconnected players.<br>
+
 - More Todo.
 
 ## Workshop Links to Dependencies
