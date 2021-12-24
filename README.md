@@ -12,7 +12,13 @@ Also, several commands require [Nadmod Prop Protection](https://github.com/Nebua
 
 ## Commands & Usage
 - <b>ulx nolag</b> ("!nolag")<br>
-&ensp;Freeze all freezable entities on the server.
+&ensp;Freeze all freezable entities on the server.<br>
+
+- <b>ulx nogibs</b> ("!nogibs")<br>
+&ensp;Removes gibs, acf debris, helicopter chunks, and more.<br>
+
+- <b>ulx noclass</b> ("!noclass") `<class>`<br>
+&ensp;Cleans up all instances of a specific entity class. &nbsp;Supports use of * as a wildcard.<br>
 
 - More Todo.
 
