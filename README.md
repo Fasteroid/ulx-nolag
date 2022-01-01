@@ -17,8 +17,8 @@ Also, several commands require [Nadmod Prop Protection](https://github.com/Nebua
 - <b>ulx nogibs</b> ("!nogibs")<br>
 &ensp;Removes gibs, acf debris, helicopter chunks, and more.<br>
 
-- <b>ulx noclass</b> ("!noclass") `<class>`<br>
-&ensp;Cleans up all instances of a specific entity class. &nbsp;Supports use of * as a wildcard.<br>
+- <b>ulx noclass</b> ("!noclass") `<class>` `<force: 0/1>`<br>
+&ensp;Removes entities that match the provided class.<br>
 
 - <b>ulx cleanup</b> ("!cleanup") `<player>`<br>
 &ensp;(NADMOD PP) Cleans up a player's entities. &nbsp;Ideal for panicked spam removal.<br>
