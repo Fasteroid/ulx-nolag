@@ -62,11 +62,11 @@ function ulx.noclass( calling_ply, target_class, force )
     end
 	for k, v in ipairs( ents.FindByClass(target_class) ) do 
 		print(v)
-		if( (force==0) and isImportant(v) ) then continue end -- sanity check 2
+		if( not force and isImportant(v) ) then continue end -- sanity check 2
 		v:Remove() 
 		count = count + 1
 	end
-	if( (force==0) ) then
+	if( not force ) then
 		ulx.fancyLogAdmin( calling_ply, "#A cleaned up #i entities matching the class #s", count, target_class )
 	else
 		ulx.fancyLogAdmin( calling_ply, "#A forcibly cleaned up #i entities matching the class #s", count, target_class )
