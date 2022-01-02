@@ -76,7 +76,7 @@ end
 
 local noclass = ulx.command( CATEGORY_NAME, "ulx noclass", ulx.noclass, "!noclass" )
 noclass:addParam{ type=ULib.cmds.StringArg, hint="class" }
-noclass:addParam{ type=ULib.cmds.BoolArg, default=0, hint="force" }
+noclass:addParam{ type=ULib.cmds.BoolArg, default=0, hint="force", ULib.cmds.optional }
 noclass:defaultAccess( ULib.ACCESS_SUPERADMIN )
 noclass:help( "Removes entities that match the provided class." )
 
