@@ -31,7 +31,7 @@ Also, several commands require [Nadmod Prop Protection](https://github.com/Nebua
 ## Workshop Links to Dependencies
  - [ULX](http://steamcommunity.com/sharedfiles/filedetails/?id=557962280) | `557962280`
  - [ULib](http://steamcommunity.com/sharedfiles/filedetails/?id=557962238) | `557962238`
- - [Nadmod Prop Protection](https://steamcommunity.com/sharedfiles/filedetails/?id=159298542) | `159298542` (other versions of SUI scoreboard can also be used)
+ - [Nadmod Prop Protection](https://steamcommunity.com/sharedfiles/filedetails/?id=159298542) | `159298542`
  
 ## Credits
 ULX is brought to you by...
