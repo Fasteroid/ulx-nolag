@@ -114,7 +114,7 @@ function ulx.freezeprops( calling_ply, target_ply )
 	for _, ent in ipairs( ents.GetAll() ) do
 		local phys_obj = ent:GetPhysicsObject()
 
-		if phys_obj:IsValid() and ( ent:GetCreator() == target_ply or ent.SPPOwner == target_ply ) then
+		if phys_obj:IsValid() and phys_obj:IsMotionEnabled() and ( ent:GetCreator() == target_ply or ent.SPPOwner == target_ply ) then
 			phys_obj:EnableMotion( false )
 			count = count + 1
 		end
