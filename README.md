@@ -26,6 +26,9 @@ Also, several commands require [Nadmod Prop Protection](https://github.com/Nebua
 - <b>ulx cleanupdiscon</b> ("!cleanupdiscon")<br>
 &ensp;(NADMOD PP) Clears props of disconnected players.<br>
 
+- <b>ulx freezeprops</b> ("!freezeprops") `<player>`<br>
+&ensp;Freezes all entities owned by the target.
+
 - More Todo.
 
 ## Workshop Links to Dependencies
