@@ -36,15 +36,23 @@ nolag:help( "Freeze all freezable entities on the server." )
 
 
 ------------------------------ Gibs Cleanup ------------------------------
-local GIB_TYPES = {"gib","item_*","debris","helicopter_chunk"}
+local POSSIBLE_GIBS = {"gib","item_*","debris","helicopter_chunk","prop_physics","prop_ragdoll"}
 function ulx.nogibs( calling_ply )
+
 	local count = 0
-	for _, class in ipairs(GIB_TYPES) do
+	for _, class in ipairs(POSSIBLE_GIBS) do
 		for k, v in ipairs( ents.FindByClass(class) ) do 
+			if v.CPPIGetOwner then
+				local owner = v:CPPIGetOwner()
+				if owner and owner:IsPlayer() then
+					continue
+				end
+			end
 			v:Remove() 
 			count = count + 1
 		end
 	end
+	
 	ulx.fancyLogAdmin( calling_ply, "#A cleaned up #i gib entities", count )
 	return count
 end
