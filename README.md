@@ -29,7 +29,12 @@ Also, several commands require [Nadmod Prop Protection](https://github.com/Nebua
 - <b>ulx freezeprops</b> ("!freezeprops") `<player>`<br>
 &ensp;Freezes all entities owned by the target.
 
-- More Todo.
+- <b>ulx ramusage</b> ("!mem" or "!memusage")<br>
+&ensp;Prints server memory usage in chat.<br>
+&ensp;Running `!collectgarbage` may be a good idea if this exceeds 1 GB<br>
+
+- <b>ulx collectgarbage</b> ("!collectgarbage" or "!gc")<br>
+&ensp;Attempts to free some memory on the server.<br>
 
 ## Workshop Links to Dependencies
  - [ULX](http://steamcommunity.com/sharedfiles/filedetails/?id=557962280) | `557962280`

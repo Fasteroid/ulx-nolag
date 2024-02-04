@@ -158,3 +158,42 @@ local freezeprops = ulx.command( CATEGORY_NAME, "ulx freezeprops", ulx.freezepro
 freezeprops:addParam{ type = ULib.cmds.PlayerArg }
 freezeprops:defaultAccess( ULib.ACCESS_ADMIN )
 freezeprops:help( "Freezes all entities owned by the target" )
+
+-- pass in kilobytes amount, get nicely formatted memory amount
+local function memStr(amt)
+
+    units = " KB"
+
+    if amt > 1024 then
+        amt = amt / 1024
+        units = " MB"
+    end
+
+    if amt > 1024 then
+        amt = amt / 1024
+        units = " GB"
+    end
+
+    return math.Round(amt,1) .. units
+end
+
+------------------------------ Collect Garbage ------------------------------
+function ulx.collectgarbage(calling_ply)
+
+    local old = collectgarbage("count")
+    collectgarbage()
+    ulx.fancyLogAdmin( calling_ply, "#A freed #s of memory on the server", memStr( old - collectgarbage("count") ) )
+
+end
+local gc = ulx.command( CATEGORY_NAME, "ulx collectgarbage", ulx.collectgarbage, {"!gc","!collectgarbage"} )
+gc:defaultAccess( ULib.ACCESS_ADMIN )
+gc:help( "Attempts to free some memory on the server." )
+
+
+------------------------------ Count Memory ------------------------------
+function ulx.ramusage(calling_ply)
+    ULib.tsay( calling_ply, "The server is currently using " .. memStr( collectgarbage('count') ) .. " of memory.", true )
+end
+local ramusage = ulx.command( CATEGORY_NAME, "ulx ramusage", ulx.ramusage, {"!mem","!memusage"} )
+ramusage:defaultAccess( ULib.ACCESS_ADMIN )
+ramusage:help( "Prints server memory usage in chat." )
