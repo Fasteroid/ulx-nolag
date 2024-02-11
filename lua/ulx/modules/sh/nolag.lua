@@ -36,7 +36,7 @@ nolag:help( "Freeze all freezable entities on the server." )
 
 
 ------------------------------ Gibs Cleanup ------------------------------
-local GIB_TYPES  = {"gib","item_.*","debris","helicopter_chunk"}
+local GIB_TYPES  = {"gib","item_.*","debris","helicopter_chunk","prop_ragdoll_attached"}
 local GIB_MODELS = {"models/gibs/.*"}
 
 local function HasNoOwner(ent)
